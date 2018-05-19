@@ -1,0 +1,25 @@
+﻿@model IEnumerable<AreaTest.Controllers.MyArea>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home Page";
+}
+
+
+<ul>
+    @foreach (var area in Model)
+    {
+        <li>@area.Name</li>
+        <ul>
+            @foreach (var controller in area.MyControllers)
+            {
+                <li>@controller.Name</li>
+                <ul>
+                    @foreach (var action in controller.MyActions)
+                    {
+                        <li>@action.Name</li>
+                    }
+                </ul>
+            }
+        </ul>
+    }
+</ul>
